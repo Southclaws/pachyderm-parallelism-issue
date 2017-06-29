@@ -1,0 +1,36 @@
+{
+	"pipeline": {
+		"name": "southclaws-test"
+	},
+	"transform": {
+		"image": "nanowire/worker_pfs:f40d383ae87b34636ecbb8eef19c9759dbf2b389",
+		"cmd": [
+			"./main"
+		],
+		"env": {
+			"DEBUG": "1",
+			"INPUT_DIRECTORY": "/pfs/in",
+			"OUTPUT_DIRECTORY": "/pfs/out"
+		},
+		"imagePullSecrets": [
+			"registry-keys"
+		]
+	},
+	"parallelismSpec": {
+		"constant": "2"
+	},
+	"outputBranch": "master",
+	"scaleDownThreshold": "3600.000s",
+	"resourceSpec": {
+		"cpu": 0.1,
+		"memory": "100Mi"
+	},
+	"input": {
+		"atom": {
+			"name": "in",
+			"repo": "0e2f72f5-input",
+			"branch": "master",
+			"glob": "/*"
+		}
+	}
+}
