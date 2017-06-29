@@ -11,10 +11,7 @@
 			"DEBUG": "1",
 			"INPUT_DIRECTORY": "/pfs/in",
 			"OUTPUT_DIRECTORY": "/pfs/out"
-		},
-		"imagePullSecrets": [
-			"registry-keys"
-		]
+		}
 	},
 	"parallelismSpec": {
 		"constant": "2"
